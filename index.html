@@ -4,300 +4,169 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Consulta de Status - Treinamento 4 Bimestre | Ademicon</title>
+<title>Consulta de Status - Ademicon</title>
 <style>
 *{margin:0;padding:0;box-sizing:border-box}
 body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-gradient(135deg,#231F20,#414042,#231F20);min-height:100vh;display:flex;justify-content:center;align-items:flex-start;padding:40px 20px}
-.container{background:#FFF;border-radius:20px;padding:40px;max-width:700px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.4)}
-.header{text-align:center;margin-bottom:30px;border-bottom:3px solid #D03025;padding-bottom:20px}
-.header h1{color:#7A1315;font-size:1.8em;margin-bottom:8px}
-.header p{color:#414042;font-size:.95em}
-.search-box{margin-bottom:20px}
-.search-box label{display:block;font-weight:600;color:#231F20;margin-bottom:8px;font-size:.95em}
-.req{color:#D03025}
-.dica{display:block;font-size:.8em;color:#414042;font-weight:400;margin-top:4px}
-.search-box input,.search-box select{width:100%;padding:14px 18px;border:2px solid #DCDDDE;border-radius:12px;font-size:1em;outline:none;background:#FFF;color:#231F20;transition:border-color .3s}
-.search-box input:focus,.search-box select:focus{border-color:#D03025}
-.btn{width:100%;padding:14px;background:linear-gradient(135deg,#D03025,#7A1315);color:#FFF;border:none;border-radius:12px;font-size:1.05em;font-weight:600;cursor:pointer;transition:transform .2s,box-shadow .2s;margin-top:10px}
-.btn:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(208,48,37,0.4)}
-.results{margin-top:30px}
-.card{background:#f8f8f8;border-radius:14px;padding:24px;margin-bottom:15px;border-left:5px solid #D03025;animation:fi .4s ease}
+.ct{background:#FFF;border-radius:20px;padding:40px;max-width:700px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,0.4)}
+.hd{text-align:center;margin-bottom:30px;border-bottom:3px solid #D03025;padding-bottom:20px}
+.hd h1{color:#7A1315;font-size:1.8em;margin-bottom:8px}
+.hd p{color:#414042;font-size:.95em}
+.sb{margin-bottom:20px}
+.sb label{display:block;font-weight:600;color:#231F20;margin-bottom:8px;font-size:.95em}
+.rq{color:#D03025}
+.dk{display:block;font-size:.8em;color:#414042;font-weight:400;margin-top:4px}
+.sb input,.sb select{width:100%;padding:14px 18px;border:2px solid #DCDDDE;border-radius:12px;font-size:1em;outline:none;background:#FFF;color:#231F20;transition:border-color .3s}
+.sb input:focus,.sb select:focus{border-color:#D03025}
+.bt{width:100%;padding:14px;background:linear-gradient(135deg,#D03025,#7A1315);color:#FFF;border:none;border-radius:12px;font-size:1.05em;font-weight:600;cursor:pointer;transition:transform .2s,box-shadow .2s;margin-top:10px}
+.bt:hover{transform:translateY(-2px);box-shadow:0 8px 25px rgba(208,48,37,0.4)}
+.rs{margin-top:30px}
+.cd{background:#f8f8f8;border-radius:14px;padding:24px;margin-bottom:15px;border-left:5px solid #D03025;animation:fi .4s ease}
 @keyframes fi{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
-.card .nm{font-size:1.15em;font-weight:700;color:#7A1315;margin-bottom:12px}
-.card .ir{display:flex;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap}
-.card .il{font-weight:600;color:#414042;font-size:.9em}
-.card .iv{color:#231F20;font-size:.9em}
-.badge{display:inline-block;padding:6px 16px;border-radius:20px;font-weight:700;font-size:.85em;margin-top:8px}
-.st-a{background:#d4edda;color:#155724}
-.st-r{background:#f8d7da;color:#7A1315}
-.st-p{background:#fff3cd;color:#856404}
-.st-rc{background:#cce5ff;color:#004085}
-.alerta-p{border:2px solid #ffc107;background:#fff3cd;border-radius:12px;padding:18px 22px;margin-top:15px;animation:fi .5s ease}
-.alerta-p p{color:#856404;font-size:.95em;line-height:1.5}
-.alerta-p strong{color:#6d5200}
-.alerta-r{border:2px solid #D03025;background:#fdf0ef;border-radius:12px;padding:18px 22px;margin-top:15px;animation:fi .5s ease}
-.alerta-r p{color:#7A1315;font-size:.95em;line-height:1.6}
-.alerta-r strong{color:#7A1315}
-.alerta-r .pol{font-style:italic;margin-top:8px;padding-left:12px;border-left:3px solid #D03025}
-.nores{text-align:center;padding:30px;color:#414042;font-size:1em}
-.nores .ico{font-size:3em;margin-bottom:10px}
-.errmsg{text-align:center;padding:20px;color:#D03025;font-weight:600;font-size:.95em}
-.footer{text-align:center;margin-top:30px;padding-top:15px;border-top:2px solid #DCDDDE;color:#414042;font-size:.8em}
-@media(max-width:500px){.container{padding:25px 20px}.header h1{font-size:1.4em}.card .ir{flex-direction:column}}
+.cd .nm{font-size:1.15em;font-weight:700;color:#7A1315;margin-bottom:12px}
+.cd .ir{display:flex;justify-content:space-between;margin-bottom:8px;flex-wrap:wrap}
+.cd .il{font-weight:600;color:#414042;font-size:.9em}
+.cd .iv{color:#231F20;font-size:.9em}
+.bg{display:inline-block;padding:6px 16px;border-radius:20px;font-weight:700;font-size:.85em;margin-top:8px}
+.sa{background:#d4edda;color:#155724}
+.sr{background:#f8d7da;color:#7A1315}
+.sp{background:#fff3cd;color:#856404}
+.sc{background:#cce5ff;color:#004085}
+.ap{border:2px solid #ffc107;background:#fff3cd;border-radius:12px;padding:18px 22px;margin-top:15px;animation:fi .5s ease}
+.ap p{color:#856404;font-size:.95em;line-height:1.5}
+.ap strong{color:#6d5200}
+.ar{border:2px solid #D03025;background:#fdf0ef;border-radius:12px;padding:18px 22px;margin-top:15px;animation:fi .5s ease}
+.ar p{color:#7A1315;font-size:.95em;line-height:1.6}
+.ar strong{color:#7A1315}
+.ar .pl{font-style:italic;margin-top:8px;padding-left:12px;border-left:3px solid #D03025}
+.nr{text-align:center;padding:30px;color:#414042;font-size:1em}
+.nr .ic{font-size:3em;margin-bottom:10px}
+.em{text-align:center;padding:20px;color:#D03025;font-weight:600;font-size:.95em}
+.ft{text-align:center;margin-top:30px;padding-top:15px;border-top:2px solid #DCDDDE;color:#414042;font-size:.8em}
+@media(max-width:500px){.ct{padding:25px 20px}.hd h1{font-size:1.4em}.cd .ir{flex-direction:column}}
 </style>
 </head>
 <body>
-<div class="container">
-<div class="header">
-<h1>&#128218; Consulta de Treinamento</h1>
-<p>Status do 4&ordm; Bimestre (Julho/Agosto 2026)</p>
+<div class="ct">
+  <div class="hd">
+    <h1>&#128218; Consulta de Treinamento</h1>
+    <p>Status do 4&ordm; Bimestre (Julho/Agosto 2026)</p>
+  </div>
+  <div class="sb">
+    <label for="un">Selecione sua Unidade: <span class="rq">*</span></label>
+    <select id="un">
+      <option value="">-- Selecione a Unidade --</option>
+    </select>
+  </div>
+  <div class="sb">
+    <label for="nm">Seu Nome Completo: <span class="rq">*</span>
+      <span class="dk">Digite seu nome completo, em letras MAIUSCULAS e sem acentos. Ex: MARIA JOSE DA SILVA</span>
+    </label>
+    <input type="text" id="nm" placeholder="EX: MARIA JOSE DA SILVA" autocomplete="off">
+  </div>
+  <button class="bt" onclick="buscar()">&#128269; Consultar Status</button>
+  <div class="rs" id="rs"></div>
+  <div class="ft"><p>Atualizado em: 30/09/2026 | 4&ordm; Bimestre</p></div>
 </div>
-<div class="search-box">
-<label for="un">Selecione sua Unidade: <span class="req">*</span></label>
-<select id="un"><option value="">-- Selecione a Unidade --</option></select>
-</div>
-<div class="search-box">
-<label for="nm">Seu Nome Completo: <span class="req">*</span>
-<span class="dica">Digite seu nome completo, em letras MAIUSCULAS e sem acentos. Ex: MARIA JOSE DA SILVA</span>
-</label>
-<input type="text" id="nm" placeholder="EX: MARIA JOSE DA SILVA" autocomplete="off">
-</div>
-<button class="btn" onclick="buscar()">&#128269; Consultar Status</button>
-<div class="results" id="res"></div>
-<div class="footer"><p>Atualizado em: 30/09/2026 | 4&ordm; Bimestre</p></div>
-</div>
+
+<!-- DADOS: carrega o arquivo dados.js que deve estar na mesma pasta -->
+<script src="dados.js"></script>
+
 <script>
-var D=[
-{n:"ADRIANA DE CRISTO POLETTI",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PINHAIS CENTRO - PR",d:"19/08/2026"},
-{n:"ADRIANA PATRICIA GIACOMINI",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SANTA MARIA - RS",d:"28/08/2026"},
-{n:"ALANYS DA CUNHA DE CAMPOS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PIRAQUARA CENTRO - PR",d:"12/08/2026"},
-{n:"ALEXANDRA LOPES",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO PAULO - CHAC S ANTONI - SP",d:"24/08/2026"},
-{n:"ALINE CRISTINA PEREIRA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"ITARARE CENTRO - SP",d:"18/08/2026"},
-{n:"ALINE SANTOS DA SILVA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"RIO BRANCO - AC",d:"26/08/2026"},
-{n:"ALINE SOARES FERNANDES",s:"Reprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"ARAPONGAS - PR",d:"31/08/2026"},
-{n:"AMANDA BUENO BAUNER BACK",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"INDAIAL CENTRO - SC",d:"24/07/2026"},
-{n:"AMANDA CRISTINA MOURA DOS SANTOS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"MANAUS - AM",d:"30/07/2026"},
-{n:"AMANDA DIAS GONCALVES",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"RIBEIRAO PRETO  IGUATEMI - SP",d:"27/08/2026"},
-{n:"AMANDA DIAS GONCALVES",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"RIBEIRAO JD BOTANICO - SP",d:"27/08/2026"},
-{n:"AMANDA PANTOJA DE ASSUNCAO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CHAMPAGNAT - PR",d:"19/08/2026"},
-{n:"AMANDA SANTA CRUZ GENTIL",s:"Pend\u00eancias - 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"LONDRINA - PR",d:"29/08/2026"},
-{n:"ANA BEATRIZ DE OLIVEIRA LIMA",s:"Reprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CENTRO - PR",d:"31/08/2026"},
-{n:"ANA CAROLINA HOELZLE BAETA DA COSTA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO J. DEL REI COL MARCAL - MG",d:"27/08/2026"},
-{n:"ANA CAROLINE ECKERT",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"JARAGUA DO SUL - VL NOVA - SC",d:"28/08/2026"},
-{n:"ANA CAROLINE RIBEIRO GOMES",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"UMUARAMA - PR",d:"24/08/2026"},
-{n:"ANA LUIZA SILVA COTRIM",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"ANAPOLIS - GO",d:"20/08/2026"},
-{n:"ANA PAULA PEIXOTO",s:"Pend\u00eancias - 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PORTO RICO RIV BOULEVARD - PR",d:"29/08/2026"},
-{n:"ANDRE LUIZ DOS SANTOS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"JOINVILLE - ATIRADORES - SC",d:"23/07/2026"},
-{n:"ANDREIA SOUSA FERNANDES",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"BARRA DO GARCAS - MT",d:"21/08/2026"},
-{n:"ANDRESSA RAIANE DO COUTO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"ALTO DA XV - PR",d:"26/08/2026"},
-{n:"ANGELICA BRASIL VIEGAS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PORTO ALEGRE - MOINHOS - RS",d:"20/08/2026"},
-{n:"ANGELICA LOPES DE FRAGA",s:"Reprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PALHOCA - SC",d:"31/08/2026"},
-{n:"ANNE KAROLLYNE DE OLIVEIRA MARTINS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"AVENIDA DAS TORRES - PR",d:"12/08/2026"},
-{n:"ARIANE APARECIDA DA SILVA DE MACEDO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CWB - CAPAO RASO - PR",d:"22/07/2026"},
-{n:"ARTHUR PIMENTEL LISBOA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"RIO DE JANEIRO LEBLON - RJ",d:"21/07/2026"},
-{n:"ARYELI ABADE NEPOMUCENO LEWIN",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"GUARAMIRIM - SC",d:"27/08/2026"},
-{n:"BEATRIZ SCHULTZ RUMOR",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"AGUA VERDE - PR",d:"26/08/2026"},
-{n:"BRUNA GODOI TELLES CALUMBI DA SILVA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"NAVEGANTES - SC",d:"28/08/2026"},
-{n:"BRUNA JORDELINO SILVESTRI",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"GUARATUBA CENTRO - PR",d:"04/08/2026"},
-{n:"BRUNA LUIZA DOS SANTOS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"MARAU - RS",d:"05/08/2026"},
-{n:"BRUNA MORAIS STICA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CAJURU - PR",d:"19/08/2026"},
-{n:"CAMILA BATISTA DE JESUS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO CAETANO STA. PAULA -SP",d:"26/08/2026"},
-{n:"CAMILA FRANCA SALVIANO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SANTO ANDRE - JARDIM - SP",d:"18/08/2026"},
-{n:"CAMILA GABRIELA FERREIRA MONTEIRO MAIA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"MURIAE BARRA - MG",d:"25/08/2026"},
-{n:"CAMILA MORENO ULIAM",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CAMPINAS TAQUARAL - SP",d:"23/07/2026"},
-{n:"CARLOS EDUARDO DE ALMEIDA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"V. REDONDA SETE DE SETEMB - RJ",d:"20/08/2026"},
-{n:"CARLOS HENRIQUE DE SOUZA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PONTA GROSSA - PR",d:"20/07/2026"},
-{n:"CAROLINE CORREA INGLEZ",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"MARINGA CENTRO - PR",d:"27/08/2026"},
-{n:"CATIA DA SILVA COELHO MOREIRA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CAMPINAS CAMBUI- SP",d:"19/08/2026"},
-{n:"CINTIA CIBELE ALENCAR DE ARAUJO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO PAULO - MORUMBI - SP",d:"28/08/2026"},
-{n:"CLAUDINEIA FRANCISCO BATISTA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"MARILIA POLON - SP",d:"21/07/2026"},
-{n:"CRISTIANE VIANA DE AZEVEDO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"NOVA IGUACU CENTRO - RJ",d:"24/08/2026"},
-{n:"DEBORAH STEGER PEREIRA DE LIMA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SITIO CERCADO - PR",d:"21/08/2026"},
-{n:"DHIEYNI COIMBRA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CANOAS - RS",d:"28/08/2026"},
-{n:"EDUARDA DA SILVA COSTA DINIZ",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"BALNEARIO CAMBORIU - SC",d:"25/08/2026"},
-{n:"EDUARDA MONTEIRO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"GOIANIA - PRACA DO SOL - GO",d:"26/08/2026"},
-{n:"EDYANE RODRIGUES COUTO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"VILHENA - RO",d:"18/08/2026"},
-{n:"ELISABET GAERTNER",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"RIO DO SUL - SC",d:"26/08/2026"},
-{n:"EMANUELE DOS SANTOS BORCATE",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CANOINHAS - SC",d:"24/08/2026"},
-{n:"EMILLY SEMENTE",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"GUARUJA CENTRO - SP",d:"25/08/2026"},
-{n:"EMILY CARLA MARRAFAO INACIO DE CARVALHO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PARANAVAI - PR",d:"21/08/2026"},
-{n:"EMILY COSTA LUIZ",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO PAULO - CHAC S ANTONI - SP",d:"23/07/2026"},
-{n:"ERICA ALVES BAHR RENALDIN",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CAMPO LARGO CENTRO - PR",d:"12/08/2026"},
-{n:"ESTEFANI ALVES DO PRADO DE LIMA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"RIO NEGRINHO - SC",d:"28/08/2026"},
-{n:"FABIANA BATISTA DA SILVA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO PAULO - BROOKLIN - SP",d:"27/08/2026"},
-{n:"FABIANA GONCALVES ANACLETO",s:"Reprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"ALM. TAMANDARE CACHOEIRA - PR",d:"31/08/2026"},
-{n:"FABIO VINICIUS SOUZA DE SANTANA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"RIO DE JANEIRO SAO CONR - RJ",d:"24/08/2026"},
-{n:"FERNANDA DAVID DOS SANTOS",s:"Pend\u00eancias - 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PORTO ALEGRE - RS",d:"26/08/2026"},
-{n:"FERNANDA GABRIEL RODRIGUES DA SILVA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CAMPO LARGO CENTRO - PR",d:"19/08/2026"},
-{n:"FERNANDA RAMOS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO CARLOS AV SAO CARLOS - SP",d:"24/08/2026"},
-{n:"FLAVIA DIAS AMANTINO",s:"Pend\u00eancias - 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SITIO CERCADO - PR",d:"27/09/1986"},
-{n:"FLAVIANA MOREIRA DA SILVA CARDOSO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"HAUER - PR",d:"28/08/2026"},
-{n:"FRANCIELI KAPCZUK",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"UNIAO DA VITORIA - PR",d:"29/08/2026"},
-{n:"FRANCIELLE DOS SANTOS DELFINO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"ITUMBIARA - GO",d:"17/08/2026"},
-{n:"FRANCIELLE PEREIRA PRESTES",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CAMPO MOURAO - PR",d:"27/08/2026"},
-{n:"GABRIELA COSTA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"LONDRINA - PR",d:"08/02/2026"},
-{n:"GABRIELLE SILVA DE OLIVEIRA",s:"Aprovado 3\u00ba Bi",b:"4\u00ba bimestre (julho/agosto)",u:"LUIS EDUARDO MAGALHAES - BA",d:"24/08/2026"},
-{n:"GABRIELLI RIOS GALLI",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO PAULO - MOOCA - SP",d:"20/08/2026"},
-{n:"GABRIELLI RIOS GALLI",s:"Pend\u00eancias - 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO PAULO - MOOCA - SP",d:"20/08/2026"},
-{n:"GEOVANA KOTOVICZ DE OLIVEIRA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"BACACHERI - PR",d:"26/08/2026"},
-{n:"GEOVANA MARIA SANTOS GIARETA",s:"Recupera\u00e7\u00e3o 3\u00ba BI",b:"4\u00ba bimestre (julho/agosto)",u:"DOURADOS - MS",d:"31/08/2026"},
-{n:"GIOVANNA ESPIRINI VOLPI MEDEIROS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"NOVO HAMBURGO - RS",d:"08/08/2026"},
-{n:"GIOVANNA ESPIRINI VOLPI MEDEIROS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"NOVO HAMBURGO - RS",d:"03/07/2026"},
-{n:"GIOVANNA MIRELA SANTOS SILVA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO J DOS CAMPOS-AQUARIUS - SP",d:"19/08/2026"},
-{n:"GIULIANA OLIVEIRA GRANDE PANCINI",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"JUIZ DE FORA SAO MATEUS - MG",d:"21/08/2026"},
-{n:"GREICE RODRIGUES LOPES FERRARI",s:"Recupera\u00e7\u00e3o 3\u00ba BI",b:"4\u00ba bimestre (julho/agosto)",u:"BENTO GONCALVES - RS",d:"21/08/2026"},
-{n:"HANNE KELLY P ELIAS RIBEIRO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"ITAPOA - SC",d:"05/08/2026"},
-{n:"IAGO OLIVEIRA FRANCA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"GARANHUNS - PE",d:"29/08/2026"},
-{n:"INGRID DA COSTA RISSO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PRAIA GRANDE BOQUEIRAO - SP",d:"27/08/2026"},
-{n:"INGRID LIMA",s:"Pend\u00eancias - 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"RIO VERDE - GO",d:"21/08/2026"},
-{n:"ISABELLA CRISTINA RIBEIRO DE SIQUEIRA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"HUGO LANGE - PR",d:"28/08/2026"},
-{n:"ISABELLI KUNHASKI FERREIRA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"GRAMADO - RS",d:"26/08/2026"},
-{n:"ISIS ALINE CAMARA DA SILVA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"TORRES CENTRO - RS",d:"28/08/2026"},
-{n:"JACKELINI CRISTINA ALEXANDRE EVANGELISTA",s:"Pend\u00eancias - 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SITIO CERCADO - PR",d:"11/07/2026"},
-{n:"JAINE RODRIGUES - UNIDADE MARINGA TEIXEIRA MENDES",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"MARINGA - PR",d:"14/08/2026"},
-{n:"JANAINA VIANA DE AMORIM",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CAMPO GRANDE - MS",d:"29/08/2026"},
-{n:"JANAINE DOS SANTOS",s:"Pend\u00eancias - 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"JUNDIAI AV. NOVE DE JULHO -SP",d:"13/08/2026"},
-{n:"JENNIFER CRISTINA EUGENIO DE SOUZA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"UBERLANDIA TABAJARAS  - MG",d:"04/08/2026"},
-{n:"JESSICA SABINO SIMOES",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"JARDIM SOCIAL - PR",d:"17/08/2026"},
-{n:"JHULIANY HELENA DE ABREU PEREIRA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"JAGUARIAIVA - PR",d:"28/08/2026"},
-{n:"JOSIANE CRISTINA GOTARDO",s:"Pend\u00eancias - 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CAMBORIU - SC",d:"30/08/2026"},
-{n:"JOSIANE DA SILVA MENDES",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"MURIAE BARRA - MG",d:"18/08/2026"},
-{n:"JOYCE CRISTINA SILVA FERREIRA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"BATEL II - PR",d:"06/08/2026"},
-{n:"JULIA DA COSTA PINHEIRO",s:"Pend\u00eancias - 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO J. DEL REI COL MARCAL - MG",d:"13/08/2026"},
-{n:"JULIA GOMES ARAUJO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"VILA VELHA ITAPUA - ES",d:"04/08/2026"},
-{n:"JULIA PARDINI FRANCA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CAMPINAS - NOVA CAMPINAS - SP",d:"14/07/2026"},
-{n:"JULIA RICO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PALMAS - TO",d:"19/08/2026"},
-{n:"JULIA VON VERDE FERREIRA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SOROCABA AFONSO VERGUEIRO- SP",d:"24/07/2026"},
-{n:"JULIANA BRESSANELLI FINGER",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CAPAO DA CANOA - RS",d:"28/08/2026"},
-{n:"JULIANA LAYSA DOS SANTOS DE OLIVEIRA",s:"Aprovado 3\u00ba Bi",b:"4\u00ba bimestre (julho/agosto)",u:"HAUER - PR",d:"29/08/2026"},
-{n:"JULIANA SANTOS MADUREIRA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO PAULO - PENHA - SP",d:"27/07/2026"},
-{n:"KARINA VASCONSELOS CARDOSO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CRICIUMA - SC",d:"25/08/2026"},
-{n:"KAROLAYN SEMANN DE SOUZA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"BALNEARIO PICARRAS - SC",d:"27/08/2026"},
-{n:"KATIA DE MEDEIROS VALERIO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"NATAL - RN",d:"28/08/2026"},
-{n:"KAUANI CAROLINE KLEIN MARTINS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"GUARAMIRIM - SC",d:"19/08/2026"},
-{n:"KAUANI MARTINELLI PEREIRA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CHAPECO - SC",d:"17/07/2026"},
-{n:"KELLI CRISTINA ROSABONI PEREZ",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"VILHENA - RO",d:"04/08/2026"},
-{n:"KELLI CRISTINA ROSABONI PEREZ",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"VILHENA - RO",d:"31/08/2026"},
-{n:"KELLY BRAGA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SARANDI - PR",d:"10/08/2026"},
-{n:"KELLY CRISTINA DA CAMARA PINHEIRO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO PAULO - MOOCA - SP",d:"23/07/2026"},
-{n:"KELY CRISTINA SANTOS DA SILVA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PIRAQUARA CENTRO - PR",d:"19/08/2026"},
-{n:"KELY MARIA CEVITEREZA EMILIANO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"ALPHAVILLE BARUERI - SP",d:"20/07/2026"},
-{n:"KEMILI CAROLINI AZEVEDO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CONCORDIA - SC",d:"27/08/2026"},
-{n:"KIKA BUENO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"ALPHAVILLE MURANO - SP",d:"22/08/2026"},
-{n:"LARISSA GAIOSKI MARINHO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CAMPINAS - NOVA CAMPINAS - SP",d:"20/08/2026"},
-{n:"LARISSA PELONIO ARTIGAS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"REBOUCAS - PR",d:"29/07/2026"},
-{n:"LEONARDO GABRIEL DE SOUZA CORREIA",s:"Pend\u00eancias - 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SITIO CERCADO - PR",d:"01/09/2026"},
-{n:"LETICE LUSIA URBANSKI FONTANELLA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"BACACHERI - PR",d:"26/08/2026"},
-{n:"LETICIA DAS NEVES",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SANTA FELICIDADE - PR",d:"10/08/2026"},
-{n:"LETICIA EMANUELLI FABRO",s:"Pend\u00eancias - 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"TOLEDO - PR",d:"20/08/2026"},
-{n:"LETICIA GABRIELLE PERINAZZO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"JUVEVE - PR",d:"26/08/2026"},
-{n:"LETICIA NORONHA FORESTI",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"OUTRA",d:"28/08/2026"},
-{n:"LUANA VITORIA FERREIRA DOS SANTOS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CUIABA - MT",d:"16/07/2026"},
-{n:"LUCAS BARROCO DA COSTA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"BATEL II - PR",d:"20/08/2026"},
-{n:"LUCAS SANTHYAGO LIMA DA SILVA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO LUIS - MA",d:"26/08/2026"},
-{n:"LUCIANO TAIJI DE OLIVEIRA CAMPOS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PORTAO - PR",d:"20/08/2026"},
-{n:"LUCIENE MONTAGNINI",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"BRASILIA - DF",d:"24/08/2026"},
-{n:"LUIS FERNANDO FURTADO DA CRUZ CARDOSO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"LONDRINA CENTRO - PR",d:"26/08/2026"},
-{n:"LUISA AZAMBUJA ESPARTEL",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"BAGE - RS",d:"13/08/2026"},
-{n:"LUIZA TEIXEIRA RECH",s:"Pend\u00eancias - 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"BLUMENAU - SC",d:"28/08/2026"},
-{n:"MAINA MAKALLA HUTTER",s:"Recupera\u00e7\u00e3o 3\u00ba BI",b:"4\u00ba bimestre (julho/agosto)",u:"POMERODE - SC",d:"26/08/2026"},
-{n:"MAIRA MARA GROSBELLI",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CHAPECO CENTRO - SC",d:"19/08/2026"},
-{n:"MARCELE BRASIL",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CAMPO GRANDE - RJ",d:"29/07/2026"},
-{n:"MARIA EDUARDA CHINCHO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SOROCABA ITAVUVU - SP",d:"26/08/2026"},
-{n:"MARIA EDUARDA CHINCHO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SOROCABA - SP",d:"22/07/2026"},
-{n:"MARIA EDUARDA GUISSONI OLIVEIRA",s:"Recupera\u00e7\u00e3o 3\u00ba BI",b:"4\u00ba bimestre (julho/agosto)",u:"AMERICANA AV PAULISTA - SP",d:"10/08/2026"},
-{n:"MARIA EDUARDA LUIZ ALVES",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PORTO BELO CENTRO - SC",d:"19/08/2026"},
-{n:"MARIAH MONEDEIRO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"JUIZ DE FORA SAO MATEUS - MG",d:"28/08/2026"},
-{n:"MARIANA APARECIDA BOCHNIE MANICA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"LIMEIRA CENTRO - SP",d:"26/08/2026"},
-{n:"MARIANA CAROLINA DA COSTA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"RONDONOPOLIS - MT",d:"01/07/2026"},
-{n:"MARIANA GUEDES DE SENA",s:"Recupera\u00e7\u00e3o 3\u00ba BI",b:"4\u00ba bimestre (julho/agosto)",u:"RECIFE - PE",d:"13/08/2026"},
-{n:"MARIANA LORENZON REGIS DE PINA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO PAULO - MOEMA - SP",d:"22/07/2026"},
-{n:"MARIANA LORENZON REGIS DE PINA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO PAULO - MOEMA - SP",d:"21/08/2026"},
-{n:"MARIANA MARTENDAL CABRAL",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"BIGUACU - SC",d:"19/08/2026"},
-{n:"MARIANA TARABAL",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"NOVA LIMA VILA DA SERRA - MG",d:"18/08/2026"},
-{n:"MARIANE DOS SANTOS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PORTO BELO CENTRO - SC",d:"19/08/2026"},
-{n:"MARIANE MANDU",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"OUTRA",d:"25/08/2026"},
-{n:"MARIANE ZANDONADI",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO J DOS CAMPOS -J.MARIN - SP",d:"28/08/2026"},
-{n:"MARIANE ZANDONADI",s:"Recupera\u00e7\u00e3o 3\u00ba BI",b:"4\u00ba bimestre (julho/agosto)",u:"TAUBATE CENTRO - SP",d:"28/08/2026"},
-{n:"MARIELLA MARTINS ALVES DE OLIVEIRA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"ALPHAVILLE MURANO - SP",d:"07/07/2026"},
-{n:"MARIENE SUZINA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PONTA GROSSA - PR",d:"24/08/2026"},
-{n:"MARQUELLY BASTOS NASCIMENTO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"JOINVILLE - AMERICA - SC",d:"27/08/2026"},
-{n:"MATHEUS SOUZA CARDOSO DOS SANTOS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"BAURU AV GUEDES DE AZEVEDO- SP",d:"28/08/2026"},
-{n:"MAYARA RISSON NESI",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"DOIS VIZINHOS CENTRO - PR",d:"04/08/2026"},
-{n:"MAYSA NEVES",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CWB - CENTRO - PR",d:"23/07/2026"},
-{n:"MESSIAS RIBEIRO DO AMARAL",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PORTAO - PR",d:"20/08/2026"},
-{n:"MICAELLY LIMA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"GUARULHOS - SP",d:"16/07/2026"},
-{n:"MICAELLY LIMA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"GUARULHOS BOSQUE MAIA - SP",d:"12/08/2026"},
-{n:"MIKAELLY MOREIRA DA SILVA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"ITAPEMA - SC",d:"29/08/2026"},
-{n:"MILLENY MORAIS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"BATEL II - PR",d:"27/08/2026"},
-{n:"MIRELA DOMINGOS DE OLIVEIRA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"FORTALEZA - CE",d:"06/08/2026"},
-{n:"MIRIAM ZAMPANI",s:"Recupera\u00e7\u00e3o 3\u00ba BI",b:"4\u00ba bimestre (julho/agosto)",u:"SAO PAULO - OSCAR FREIRE - SP",d:"31/08/2026"},
-{n:"MONICA RODRIGUES DA SILVA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"ERECHIM - RS",d:"28/08/2026"},
-{n:"MONIQUE CASTRO DE CARVALHO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"RJ SHOPPING METROPOLITANO - RJ",d:"31/08/2026"},
-{n:"NATASHA MARTINI",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"COLOMBO ROCA GRANDE - PR",d:"18/08/2026"},
-{n:"NATASHA ZENARO DELLAMEA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"OURINHOS JARDIM PAULISTA - SP",d:"28/08/2026"},
-{n:"NATHALIA DE PAULA ALFF",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PASSO FUNDO - RS",d:"30/07/2026"},
-{n:"NAYARA ALMEIDA DE SOUZA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PRIMAVERA DO LESTE - MT",d:"10/07/2026"},
-{n:"NICOLLE DUARTE SILVA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"VIDEIRA - SC",d:"18/08/2026"},
-{n:"NUCIELEN RODRIGUES DOS ANJOS FEIJO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"V. REDONDA SETE DE SETEMB - RJ",d:"29/07/2026"},
-{n:"PAMELA SIMONE DA SILVA",s:"Pend\u00eancias - 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"JOINVILLE - ATIRADORES - SC",d:"18/08/2026"},
-{n:"PATRICIA CAVALHEIRO DE MEIRA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"APUCARANA - PR",d:"20/08/2026"},
-{n:"PATRICIA DE OLIVEIRA CARVALHO",s:"Pend\u00eancias - 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"MAFRA - SC",d:"19/08/2026"},
-{n:"PATRICIA GOMES MACIEL",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SANTOS GONZAGA - SP",d:"01/07/2026"},
-{n:"PATRICIA PAIVA PAIVA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CAMBORIU - SC",d:"20/08/2026"},
-{n:"PATRICIA SILVA MARIZ NARDIM",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SOROCABA AFONSO VERGUEIRO- SP",d:"24/07/2026"},
-{n:"PAULO ARIOZA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"BRASILIA - AGUAS CLARAS - DF",d:"21/08/2026"},
-{n:"PRINCIA COSTA SOUZA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"C GOYTACAZES PQ TAMANDARE - RJ",d:"27/08/2026"},
-{n:"RAFAEL ALVES PESSOA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"OUTRA",d:"28/07/1997"},
-{n:"RAFAEL DA SILVA HENRIQUE",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO PAULO - JARDINS - SP",d:"12/08/2026"},
-{n:"RAFAELA DE CASSIA DA SILVA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO PAULO - TATUAPE - SP",d:"17/07/2026"},
-{n:"RAFAELA RIBEIRO DAS NEVES",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"LAGES - SC",d:"28/08/2026"},
-{n:"RAQUEL MAZUREK DE SOUZA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"ITAJAI - SC",d:"18/08/2026"},
-{n:"RENATO DOS PASSOS ROSA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO JOSE - SC",d:"04/09/2026"},
-{n:"RICHERD ARAUJO COSTA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"PELOTAS - RS",d:"24/08/2026"},
-{n:"RITA KNOLL",s:"Pend\u00eancias - 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"ESTACAO - PR",d:"21/08/2026"},
-{n:"SANDRA MARA CIRINO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CIANORTE - PR",d:"26/08/2026"},
-{n:"SILVIA SOBUTKA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"IRATI - PR",d:"24/08/2026"},
-{n:"SOFIA VANELLI",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"BLUMENAU - SC",d:"05/08/2026"},
-{n:"SUZANA KOSMOS CAMPOS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"AMERICANA AV PAULISTA - SP",d:"27/08/2026"},
-{n:"TAILANE PRISCILLA ALVES FREITAS",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CONTAGEM TRES BARRAS - MG",d:"24/08/2026"},
-{n:"TAINARA VIERO NUNES",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"BATEL II - PR",d:"20/08/2026"},
-{n:"TAIS KARINA WERMEIER",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"XANXERE - SC",d:"22/08/2026"},
-{n:"TATIANA DE FATIMA BOTELHO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CASCAVEL - PR",d:"21/07/2026"},
-{n:"THALITA DORIA DA SILVA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SANTOS THE BLUE - SP",d:"30/07/2026"},
-{n:"THAMARA TCATCHENCO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"AMERICANA AV PAULISTA - SP",d:"27/08/2026"},
-{n:"VANESSA BORGES JARDIM",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"MARINGA - PR",d:"28/08/2026"},
-{n:"VANESSA DE LIMA LEANDRO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"CURITIBANOS - SC",d:"24/08/2026"},
-{n:"VINICIUS DE JESUS FERREIRA DA SILVA",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"RIO DE JANEIRO BARRA - RJ",d:"28/08/2026"},
-{n:"VITOR HUGO PEREIRA PLACIDO",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"RIO DE JANEIRO AMERICAS - RJ",d:"30/07/2026"},
-{n:"VITORIA HELENA GONCALVES",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"LONDRINA CENTRO - PR",d:"27/08/2026"},
-{n:"VIVIANE SILVA CAVALCANTE",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"FAZENDINHA - PR",d:"29/07/2026"},
-{n:"YASMIN JULIANA KOSMANN FRITZ",s:"Aprovado 4\u00ba bimestre",b:"4\u00ba bimestre (julho/agosto)",u:"SAO FRANCISCO DO SUL - SC",d:"27/08/2026"}
-];
-var U={};D.forEach(function(r){U[r.u]=1});
+// Mapa de status: 0=Aprovado4bi, 1=Reprovado4bi, 2=Pendencias, 3=Aprovado3bi, 4=Recuperacao3bi
+var SN=["Aprovado 4\u00ba bimestre","Reprovado 4\u00ba bimestre","Pend\u00eancias - 4\u00ba bimestre","Aprovado 3\u00ba Bi","Recupera\u00e7\u00e3o 3\u00ba BI"];
+
+// Converte os dados compactos para objetos completos
+var D=[];
+DADOS.forEach(function(r){
+  D.push({n:r.n, s:SN[r.s], u:r.u, d:r.d});
+});
+
+// Preenche a lista suspensa de unidades automaticamente
+var unidades={};
+D.forEach(function(r){unidades[r.u]=1});
 var sel=document.getElementById("un");
-Object.keys(U).sort().forEach(function(u){var o=document.createElement("option");o.value=u;o.textContent=u;sel.appendChild(o)});
+Object.keys(unidades).sort().forEach(function(u){
+  var o=document.createElement("option");
+  o.value=u;
+  o.textContent=u;
+  sel.appendChild(o);
+});
+
 function norm(t){return t.toLowerCase().normalize("NFD").replace(/[\u0300-\u036f]/g,"").trim()}
-function cls(s){var x=norm(s);if(x.indexOf("aprovado")>=0)return"st-a";if(x.indexOf("reprovado")>=0)return"st-r";if(x.indexOf("pendencia")>=0||x.indexOf("pendencias")>=0)return"st-p";if(x.indexOf("recupera")>=0)return"st-rc";return"st-p"}
-function emo(s){var x=norm(s);if(x.indexOf("aprovado")>=0)return"&#9989;";if(x.indexOf("reprovado")>=0)return"&#10060;";if(x.indexOf("pendencia")>=0||x.indexOf("pendencias")>=0)return"&#9888;&#65039;";if(x.indexOf("recupera")>=0)return"&#128260;";return"&#10067;"}
+
+function cls(s){
+  var x=norm(s);
+  if(x.indexOf("aprovado")>=0)return"sa";
+  if(x.indexOf("reprovado")>=0)return"sr";
+  if(x.indexOf("pendencia")>=0)return"sp";
+  if(x.indexOf("recupera")>=0)return"sc";
+  return"sp";
+}
+
+function emo(s){
+  var x=norm(s);
+  if(x.indexOf("aprovado")>=0)return"\u2705";
+  if(x.indexOf("reprovado")>=0)return"\u274C";
+  if(x.indexOf("pendencia")>=0)return"\u26A0\uFE0F";
+  if(x.indexOf("recupera")>=0)return"\uD83D\uDD04";
+  return"\u2753";
+}
+
 function buscar(){
-var ni=document.getElementById("nm").value.trim().toUpperCase();
-var ui=document.getElementById("un").value;
-var rv=document.getElementById("res");
-if(!ni||!ui){rv.innerHTML='<div class="errmsg">&#9888;&#65039; Selecione sua <strong>Unidade</strong> e digite seu <strong>Nome Completo</strong>.</div>';return}
-var nn=norm(ni);
-var R=D.filter(function(r){return norm(r.n)===nn&&r.u===ui});
-if(R.length===0){rv.innerHTML='<div class="nores"><div class="ico">&#128533;</div><p>Nenhum resultado encontrado.<br>Verifique se o <strong>nome completo</strong> e a <strong>unidade</strong> estao corretos.<br><small>Lembre-se: digite sem acentos e em letras maiusculas.</small></p></div>';return}
-var h="";var temP=false;var temR=false;
-R.forEach(function(r){
-var x=norm(r.s);
-if(x.indexOf("pendencia")>=0||x.indexOf("pendencias")>=0)temP=true;
-if(x.indexOf("reprovado")>=0)temR=true;
-h+='<div class="card"><div class="nm">'+r.n+'</div>';
-h+='<div class="ir"><span class="il">Unidade:</span><span class="iv">'+r.u+'</span></div>';
-h+='<div class="ir"><span class="il">Bimestre:</span><span class="iv">'+r.b+'</span></div>';
-h+='<div class="ir"><span class="il">Data de Realizacao:</span><span class="iv">'+r.d+'</span></div>';
-h+='<div class="ir"><span class="il">Status:</span><span class="iv"><span class="badge '+cls(r.s)+'">'+emo(r.s)+' '+r.s+'</span></span></div>';
-h+='</div>'});
-if(temR){h+='<div class="alerta-r"><p>&#10060; <strong>Reprovado por nao atender aos criterios da nossa politica:</strong></p><p class="pol">Nao serao aceitos treinamentos aplicados em dias de fechamento (dia 15 e o dia do fechamento do mes) nas Unidades.</p></div>'}
-if(temP){h+='<div class="alerta-p"><p>&#9888;&#65039; <strong>Atencao:</strong> Vo
+  var ni=document.getElementById("nm").value.trim().toUpperCase();
+  var ui=document.getElementById("un").value;
+  var rv=document.getElementById("rs");
+
+  if(!ni||!ui){
+    rv.innerHTML='<div class="em">\u26A0\uFE0F Selecione sua <strong>Unidade</strong> e digite seu <strong>Nome Completo</strong>.</div>';
+    return;
+  }
+
+  var nn=norm(ni);
+  var R=D.filter(function(r){return norm(r.n)===nn && r.u===ui});
+
+  if(R.length===0){
+    rv.innerHTML='<div class="nr"><div class="ic">\uD83D\uDE15</div><p>Nenhum resultado encontrado.<br>Verifique se o <strong>nome completo</strong> e a <strong>unidade</strong> est\u00e3o corretos.<br><small>Lembre-se: digite sem acentos e em letras mai\u00fasculas.</small></p></div>';
+    return;
+  }
+
+  var h="";var tP=false;var tR=false;
+
+  R.forEach(function(r){
+    var x=norm(r.s);
+    if(x.indexOf("pendencia")>=0)tP=true;
+    if(x.indexOf("reprovado")>=0)tR=true;
+    h+='<div class="cd">';
+    h+='<div class="nm">'+r.n+'</div>';
+    h+='<div class="ir"><span class="il">Unidade:</span><span class="iv">'+r.u+'</span></div>';
+    h+='<div class="ir"><span class="il">Bimestre:</span><span class="iv">4\u00ba bimestre (julho/agosto)</span></div>';
+    h+='<div class="ir"><span class="il">Data de Realiza\u00e7\u00e3o:</span><span class="iv">'+r.d+'</span></div>';
+    h+='<div class="ir"><span class="il">Status:</span><span class="iv"><span class="bg '+cls(r.s)+'">'+emo(r.s)+' '+r.s+'</span></span></div>';
+    h+='</div>';
+  });
+
+  if(tR){
+    h+='<div class="ar">';
+    h+='<p>\u274C <strong>Reprovado por n\u00e3o atender aos crit\u00e9rios da nossa pol\u00edtica:</strong></p>';
+    h+='<p class="pl">N\u00e3o ser\u00e3o aceitos treinamentos aplicados em dias de fechamento (dia 15 e o dia do fechamento do m\u00eas) nas Unidades.</p>';
+    h+='</div>';
+  }
+
+  if(tP){
+    h+='<div class="ap">';
+    h+='<p>\u26A0\uFE0F <strong>Aten\u00e7\u00e3o:</strong> Voc\u00ea possui pend\u00eancias no 4\u00ba bimestre.</p>';
+    h+='<p>Entre em contato com o <strong>Suporte Multiplicadores no WhatsApp</strong> para regularizar sua situa\u00e7\u00e3o.</p>';
+    h+='</div>';
+  }
+
+  rv.innerHTML=h;
+}
+
+document.getElementById("nm").addEventListener("keypress",function(e){
+  if(e.key==="Enter")buscar();
+});
+</script>
+</body>
+</html>
+
