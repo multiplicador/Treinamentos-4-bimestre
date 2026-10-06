@@ -66,23 +66,19 @@ body{font-family:'Segoe UI',Tahoma,Geneva,Verdana,sans-serif;background:linear-g
   </div>
   <button class="bt" onclick="buscar()">&#128269; Consultar Status</button>
   <div class="rs" id="rs"></div>
-  <div class="ft"><p>Atualizado em: 30/09/2026 | 4&ordm; Bimestre</p></div>
+  <div class="ft"><p>Atualizado em: 06/10/2026 | 4&ordm; Bimestre</p></div>
 </div>
 
-<!-- DADOS: carrega o arquivo dados.js que deve estar na mesma pasta -->
 <script src="dados.js"></script>
 
 <script>
-// Mapa de status: 0=Aprovado4bi, 1=Reprovado4bi, 2=Pendencias, 3=Aprovado3bi, 4=Recuperacao3bi
 var SN=["Aprovado 4\u00ba bimestre","Reprovado 4\u00ba bimestre","Pend\u00eancias - 4\u00ba bimestre","Aprovado 3\u00ba Bi","Recupera\u00e7\u00e3o 3\u00ba BI"];
 
-// Converte os dados compactos para objetos completos
 var D=[];
 DADOS.forEach(function(r){
-  D.push({n:r.n, s:SN[r.s], u:r.u, d:r.d});
+  D.push({n:r.n, s:SN[r.s], u:r.u});
 });
 
-// Preenche a lista suspensa de unidades automaticamente
 var unidades={};
 D.forEach(function(r){unidades[r.u]=1});
 var sel=document.getElementById("un");
@@ -141,7 +137,6 @@ function buscar(){
     h+='<div class="nm">'+r.n+'</div>';
     h+='<div class="ir"><span class="il">Unidade:</span><span class="iv">'+r.u+'</span></div>';
     h+='<div class="ir"><span class="il">Bimestre:</span><span class="iv">4\u00ba bimestre (julho/agosto)</span></div>';
-    h+='<div class="ir"><span class="il">Data de Realiza\u00e7\u00e3o:</span><span class="iv">'+r.d+'</span></div>';
     h+='<div class="ir"><span class="il">Status:</span><span class="iv"><span class="bg '+cls(r.s)+'">'+emo(r.s)+' '+r.s+'</span></span></div>';
     h+='</div>';
   });
@@ -156,7 +151,7 @@ function buscar(){
   if(tP){
     h+='<div class="ap">';
     h+='<p>\u26A0\uFE0F <strong>Aten\u00e7\u00e3o:</strong> Voc\u00ea possui pend\u00eancias no 4\u00ba bimestre.</p>';
-    h+='<p>Entre em contato com o <strong>Suporte Multiplicadores no formulário de solicitações</strong> para regularizar sua situa\u00e7\u00e3o.</p>';
+    h+='<p>Entre em contato com o <strong>Suporte Multiplicadores no WhatsApp</strong> para regularizar sua situa\u00e7\u00e3o.</p>';
     h+='</div>';
   }
 
@@ -169,5 +164,4 @@ document.getElementById("nm").addEventListener("keypress",function(e){
 </script>
 </body>
 </html>
-
 
